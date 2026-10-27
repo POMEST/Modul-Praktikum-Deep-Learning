@@ -12,12 +12,13 @@ import matplotlib.pyplot as plt
 from reportlab.lib import colors
 from reportlab.lib.pagesizes import A4
 from reportlab.lib.styles import ParagraphStyle
-from reportlab.platypus import SimpleDocTemplate,Paragraph,Spacer,Table,TableStyle,Image,PageBreak
+from reportlab.platypus import SimpleDocTemplate,Paragraph,Spacer,Table,TableStyle,Image,KeepTogether
 
 ROOT=Path(__file__).resolve().parents[1]
 NIM='123450062'; NAME='Abdillah Fikri Alpome'
 SOURCES='Implementasi mengadaptasi kode praktikum Fabio Banyu Cyto dengan izin serta starter DSWorkbench. Seluruh perhitungan dijalankan ulang menggunakan NIM individual. OpenAI Codex digunakan untuk membantu implementasi, pemeriksaan, dan penyusunan draf pembahasan.'
 ALL_ANSWERS={}
+BODY_SIZE=9
 def student_style(text):
     replacements={
       'Hasil tidak menggunakan angka eksperimen Fabio.':'Seluruh hasil diperoleh dari eksekusi dengan seed individual.',
@@ -52,8 +53,9 @@ def read(mod):
     return directory,s,rows
 def plain(s):
     return student_style(str(s)).replace('−','-').replace('–','-').replace('—','-').replace('→','->').replace('×','x').replace('±','+/-').replace('ε','epsilon')
-def p(s,size=8.5,bold=False):
-    return Paragraph(escape(plain(s)).replace('\n','<br/>'),ParagraphStyle('body',fontName='Helvetica-Bold' if bold else 'Helvetica',fontSize=size,leading=size*1.28,spaceAfter=5,textColor=colors.HexColor('#183047')))
+def p(s,size=None,bold=False):
+    size=BODY_SIZE if size is None else size
+    return Paragraph(escape(plain(s)).replace('\n','<br/>'),ParagraphStyle('body',fontName='Helvetica-Bold' if bold else 'Helvetica',fontSize=size,leading=size*1.28,spaceAfter=4,keepWithNext=bold,textColor=colors.HexColor('#183047')))
 def heading(s):return p(s,10,True)
 def table(rows,widths=None):
     obj=Table([[p(v,7.3) for v in row] for row in rows],colWidths=widths,repeatRows=1,hAlign='LEFT')
@@ -68,11 +70,13 @@ def pdf(path,title,first,second):
     def footer(c,doc):
         c.setFont('Helvetica',7);c.setFillColor(colors.HexColor('#617080'))
         c.drawString(38,24,f'{NAME} | {NIM} | RC | 2026-10-27')
-        c.drawRightString(A4[0]-38,24,f'{doc.page}/2')
+        c.drawRightString(A4[0]-38,24,f'{doc.page}')
     doc=SimpleDocTemplate(str(path),pagesize=A4,rightMargin=38,leftMargin=38,topMargin=32,bottomMargin=38,title=title,author=NAME)
-    doc.build([p(title,15,True),p(f'{NAME} | NIM {NIM} | RC | 27 Oktober 2026',9),*first,PageBreak(),p(title+' - Hasil dan pembahasan',12,True),*second],onFirstPage=footer,onLaterPages=footer)
+    doc.build([p(title,15,True),p(f'{NAME} | NIM {NIM} | RC | 27 Oktober 2026',9),*first,*second],onFirstPage=footer,onLaterPages=footer)
 def mdtable(rows):return '\n'.join(['| '+' | '.join(map(str,rows[0]))+' |','|'+'---|'*len(rows[0])]+['| '+' | '.join(map(str,row))+' |' for row in rows[1:]])
 def report(mod,title,s,summary,hypothesis,data,protocol,checks,rows,figure,caption,discussion,conclusion,limits):
+    global BODY_SIZE
+    BODY_SIZE=8.5 if mod in ('01','02') else 9
     summary,hypothesis,data,protocol,checks,caption,discussion,conclusion,limits=map(student_style,[summary,hypothesis,data,protocol,checks,caption,discussion,conclusion,limits])
     env=s['environment']
     ident=[['Komponen','Isian'],['Nama',NAME],['NIM',NIM],['Kelas','RC'],['Modul','M'+mod+' - '+title],['Tanggal praktikum','2026-10-27'],['Seed/varian individual',s['seed']],['Device','CPU, '+str(env.get('threads',env.get('torch_threads',1)))+' thread']]
@@ -169,11 +173,13 @@ Ulangi eksperimen pada beberapa seed dan anggaran yang lebih panjang untuk menil
 '''
     directory=ROOT/f'notebooks/modul-{mod}'
     (directory/f'M{mod}_{NIM}.md').write_text(md,encoding='utf-8')
-    if mod!='04':
+    if mod in ('01','02','03','04'):
         first=[heading('Ringkasan singkat'),p(summary),heading('1. Tujuan dan hipotesis'),p('Tujuan: memverifikasi implementasi dan membandingkan hasil terkendali. '+hypothesis),heading('2. Data dan protokol eksperimen'),p(data),p(protocol),p(f"Lingkungan: Python {env['python']}; PyTorch {env['torch']}; NumPy {env['numpy']}; CPU, kernel baru Run All."),heading('3. Implementasi dan pemeriksaan kebenaran'),p(checks),p(SOURCES,7.8)]
-        second=[heading('4. Hasil eksperimen'),table(rows),Spacer(1,6),pic(directory/figure),p('Gambar 1. '+caption,7.5),heading('5. Analisis dan pembahasan'),p(discussion),heading('7. Kesimpulan dan keterbatasan'),p(conclusion+' '+limits),p('Tindak lanjut: beberapa seed dan anggaran lebih panjang. Referensi: starter/materi DSWorkbench; implementasi Fabio Banyu Cyto; dokumentasi PyTorch. Bantuan OpenAI Codex dicantumkan dan hasil perlu ditinjau praktikan.',7.3)]
+        second=[heading('4. Hasil eksperimen'),table(rows,widths=[108,40,36,39,40,55,50,40,49] if mod=='04' else None),Spacer(1,6),KeepTogether([pic(directory/figure,max_height={'01':135,'02':170}.get(mod,190)),p('Gambar 1. '+caption,7.5)]),heading('5. Analisis dan pembahasan'),p(discussion),heading('7. Kesimpulan dan keterbatasan'),p(conclusion+' '+limits),p('Tindak lanjut: beberapa seed dan anggaran lebih panjang. Referensi: starter/materi DSWorkbench; implementasi Fabio Banyu Cyto; dokumentasi PyTorch. Bantuan OpenAI Codex dicantumkan dan hasil perlu ditinjau praktikan.',7.3)]
+        if mod=='04':
+            second.extend([heading('Confusion matrix model final'),KeepTogether([pic(directory/'figures/confusion-test.png',max_height=190),p('Gambar 2. Confusion matrix pada 10.000 citra test. Baris menunjukkan kelas sebenarnya dan kolom menunjukkan prediksi. Evaluasi dilakukan satu kali setelah model final ditentukan.',7.5)])])
         pdf(directory/f'M{mod}_{NIM}.pdf','M'+mod+' - '+title,first,second)
-    else:
+    if mod=='04':
         words=sum(len(line.split()) for line in md.split('## Checklist')[0].splitlines() if not line.lstrip().startswith(('|','![')))
         assert words<=1200,words
         print('M04 word count outside tables/images:',words)
@@ -361,7 +367,7 @@ Semua kondisi memakai baseline784-512-512-10, Adam0,001, batch128,30 epoch; hany
 
 ## Perbandingan prediksi dan hasil
 
-Pada epoch 5 yang sama, train loss dropout 0,2 sebesar {loss5a:.6f}, dibanding {loss5b:.6f} pada dropout 0,5; hasil ini {'mendukung' if loss5a<loss5b else 'tidak mendukung'} prediksi penurunan lebih cepat. Train loss checkpoint 0,2 dikurangi 0,5 adalah {a['train_loss']-b['train_loss']:+.6f}; gap berubah dari {b['gap']:.6f} pada 0,5 menjadi {a['gap']:.6f} pada 0,2. Epoch terbaik masing-masing {a['best_epoch']} dan {b['best_epoch']}. Regularisasi yang lebih kuat belum tentu memberi validation loss terbaik; besarnya gap perlu dibaca bersama kedua loss. Satu seed tidak cukup untuk menggeneralisasi tingkat dropout optimal.
+Pada epoch 5 yang sama, train loss dropout 0,2 sebesar {loss5a:.6f}, dibanding {loss5b:.6f} pada dropout 0,5; hasil ini {'mendukung' if loss5a<loss5b else 'tidak mendukung'} prediksi penurunan lebih cepat. Train loss checkpoint 0,2 dikurangi 0,5 adalah {a['train_loss']-b['train_loss']:+.6f}; gap berubah dari {b['gap']:.6f} pada 0,5 menjadi {a['gap']:.6f} pada 0,2. Epoch terbaik masing-masing {a['best_epoch']} dan {b['best_epoch']}. Regularisasi yang lebih kuat belum tentu memberi validation loss terbaik; besarnya gap perlu dibaca bersama kedua loss. Satu seed tidak cukup untuk menggeneralisasi tingkat dropout optimal. Pada checkpoint terbaik, validation loss dropout 0,2 adalah {a['val_loss']:.6f}, sedangkan dropout 0,5 adalah {b['val_loss']:.6f}; prediksi bahwa dropout 0,5 memperkecil gap tidak didukung oleh hasil ini. Dropout yang terlalu besar menghilangkan banyak unit saat training sehingga kapasitas efektif berkurang dan optimisasi melambat; jika terjadi underfitting, train loss dan validation loss dapat sama-sama memburuk. Percobaan ini tidak menunjukkan kedua loss memburuk secara bersamaan pada checkpoint terbaik. Catatan prediksi awal menekankan train loss dan gap; arah validation loss belum dicatat secara eksplisit sebelum run.
 
 {SOURCES}
 '''
@@ -376,4 +382,4 @@ if __name__=='__main__':
     for mod in ['01','02','03','04']:
         path=ROOT/f'notebooks/modul-{mod}/hasil/analisis-formulir.json'
         if path.is_file():ALL_ANSWERS[mod]=json.loads(path.read_text(encoding='utf-8'))
-    (ROOT/'notebooks/analisis-formulir-123450062.json').write_text(json.dumps(ALL_ANSWERS,ensure_ascii=False,indent=2),encoding='utf-8')
+    (ROOT/'notebooks/analisis-formulir-123450062.json').write_text(json.dumps(ALL_ANSWERS,ensure_ascii=False,indent=2,sort_keys=True),encoding='utf-8')

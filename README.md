@@ -9,7 +9,7 @@ NIM **123450062** | Kelas **RC** | 27 Oktober 2026
 | 01 | [Notebook](notebooks/modul-01/M01_123450062.ipynb) | [PDF](notebooks/modul-01/M01_123450062.pdf), [sumber](notebooks/modul-01/M01_123450062.md) | [CSV](notebooks/modul-01/M01_123450062_metrics.csv) | [Catatan](notebooks/modul-01/latihan-01.md) |
 | 02 | [Notebook](notebooks/modul-02/M02_123450062.ipynb) | [PDF](notebooks/modul-02/M02_123450062.pdf), [sumber](notebooks/modul-02/M02_123450062.md) | [CSV](notebooks/modul-02/M02_123450062_metrics.csv) | [Catatan](notebooks/modul-02/latihan-02.md) |
 | 03 | [Notebook](notebooks/modul-03/M03_123450062.ipynb) | [PDF](notebooks/modul-03/M03_123450062.pdf), [sumber](notebooks/modul-03/M03_123450062.md) | [CSV](notebooks/modul-03/M03_123450062_metrics.csv) | [Catatan](notebooks/modul-03/latihan-03.md) |
-| 04 | [Notebook](notebooks/modul-04/M04_123450062.ipynb) | [Markdown](notebooks/modul-04/M04_123450062.md) | [CSV](notebooks/modul-04/M04_123450062_metrics.csv) | [Catatan](notebooks/modul-04/latihan-04.md) |
+| 04 | [Notebook](notebooks/modul-04/M04_123450062.ipynb) | [PDF](notebooks/modul-04/M04_123450062.pdf), [sumber](notebooks/modul-04/M04_123450062.md) | [CSV](notebooks/modul-04/M04_123450062_metrics.csv) | [Catatan](notebooks/modul-04/latihan-04.md) |
 
 Semua notebook telah dieksekusi dari kernel baru secara berurutan. M01 memakai
 seed **1062**; M02-M04 memakai seed **62**, dan pencarian M04 memakai seed **63**.
@@ -37,8 +37,8 @@ python scripts/export_reports.py
 Pembuat laporan membaca hasil aktual di `notebooks/modul-XX/hasil/`; tidak
 melatih model atau mengevaluasi test lagi. M01/M03/M04 memakai test satu kali
 setelah pemilihan validasi; M02 merupakan pemeriksaan algoritme tanpa test.
-Tiga PDF maksimal dua halaman; M04 berupa Markdown maksimal 1200 kata di
-luar tabel/gambar. Kolom metrics mengikuti template; M02 menambahkan kolom
+Laporan M01-M04 tersedia dalam PDF, masing-masing maksimal dua halaman.
+Sumber Markdown juga disimpan untuk memudahkan revisi. Kolom metrics mengikuti template; M02 menambahkan kolom
 `record_type` yang diwajibkan checkpoint. Template resmi tidak diubah.
 
 ## Pengumpulan DSWorkbench
