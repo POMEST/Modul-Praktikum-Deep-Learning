@@ -1,0 +1,7 @@
+[
+  "Baseline menunjukkan validation loss minimum 0.455766 pada epoch 7, lalu lebih tinggi sesudahnya, misalnya epoch 8. Pada epoch terakhir loss validasi 0.698454 dan gap 0.676323; ketidakseimbangan train-validation ini menjadi bukti overfitting.",
+  "Di antara baseline dan tiga strategi terpisah, gap checkpoint terkecil dimiliki weight_decay_1e-3 sebesar 0.199436, sedangkan validation loss terendah dimiliki dropout_0.5 sebesar 0.442318. Gap kecil saja dapat muncul karena underfitting; karena itu tetap perlu melihat kedua loss.",
+  "Dalam percobaan ini pemenang random_11 memang memakai jumlah parameter maksimum dalam ruang yang dicoba, yaitu 269,322. Namun trial lain dengan kapasitas sama, misalnya random_09, memperoleh loss 0.457734, dibanding 0.430266 pada pemenang. Jadi jumlah parameter saja belum menentukan peringkat.",
+  "Secara deskriptif, learning_rate memiliki rentang rerata validation loss antarkelompok terbesar: nilai 0.0001 memberi rerata 0.543574, sedangkan 0.001 memberi 0.439228. Namun hanya 12 dari 81 kombinasi diuji dan jumlah anggota tiap kelompok tidak seimbang; faktor lain ikut berubah, sehingga ini bukan bukti pengaruh kausal tunggal.",
+  "Model final memiliki validation loss 0.430266 dan test loss 0.465573, sehingga test minus validation adalah +0.035307. Ini menggambarkan perbedaan hasil pada dua split untuk model terpilih, bukan alasan menyesuaikan hyperparameter setelah melihat test; hanya satu lintasan test dilakukan."
+]

@@ -12,3 +12,18 @@
 
 # Dataset hasil unduhan bersifat besar dan dapat dibuat ulang.
 /data/raw/
+
+# Dokumentasi dan pembuat laporan hasil eksperimen.
+!/README.md
+!/requirements-tools.txt
+!/scripts/
+
+# Cache, lingkungan, dan bobot model tidak dipublikasikan.
+__pycache__/
+.ipynb_checkpoints/
+*.pt
+*.pth
+.env
+.env.*
+
+!/.gitattributes

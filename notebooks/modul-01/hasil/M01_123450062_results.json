@@ -1,0 +1,357 @@
+{
+  "name": "Abdillah Fikri Alpome",
+  "nim": "123450062",
+  "class": "RC",
+  "date": "2026-10-27",
+  "environment": {
+    "python": "3.14.7",
+    "numpy": "2.5.3",
+    "pandas": "3.0.5",
+    "sklearn": "1.9.1",
+    "torch": "2.14.0+cpu",
+    "device": "cpu",
+    "seed": 1062,
+    "torch_threads": 1
+  },
+  "seed": 1062,
+  "epochs": 200,
+  "learning_rate": 0.05,
+  "batch_size": 32,
+  "rows": [
+    {
+      "run_id": "baseline_relu_h8",
+      "module": "M01",
+      "student_id": "123450062",
+      "seed": 1062,
+      "dataset": "make_moons",
+      "split": "train-val-test",
+      "model": "FNN(2-8-1;relu)",
+      "optimizer": "SGD",
+      "learning_rate": 0.05,
+      "batch_size": 32,
+      "epochs": 200,
+      "train_loss": 0.24902720749378204,
+      "val_loss": 0.2899986803531647,
+      "val_metric": 0.875,
+      "test_metric": null,
+      "parameters": 33,
+      "trainable_parameters": 33,
+      "runtime_seconds": 1.478278699999919,
+      "device": "cpu",
+      "notes": "status=ok; role=baseline; activation=relu; hidden_size=8; initial_val_loss=0.67744750; val_metric=accuracy; near_flat_last20=False; dead_relu_train=1"
+    },
+    {
+      "run_id": "latihan_tanh_h8",
+      "module": "M01",
+      "student_id": "123450062",
+      "seed": 1062,
+      "dataset": "make_moons",
+      "split": "train-val-test",
+      "model": "FNN(2-8-1;tanh)",
+      "optimizer": "SGD",
+      "learning_rate": 0.05,
+      "batch_size": 32,
+      "epochs": 200,
+      "train_loss": 0.2807835638523102,
+      "val_loss": 0.30946698784828186,
+      "val_metric": 0.8666666666666667,
+      "test_metric": null,
+      "parameters": 33,
+      "trainable_parameters": 33,
+      "runtime_seconds": 1.4151263999997354,
+      "device": "cpu",
+      "notes": "status=ok; role=latihan; activation=tanh; hidden_size=8; initial_val_loss=0.62995183; val_metric=accuracy; near_flat_last20=False"
+    },
+    {
+      "run_id": "relu_4",
+      "module": "M01",
+      "student_id": "123450062",
+      "seed": 1062,
+      "dataset": "make_moons",
+      "split": "train-val-test",
+      "model": "FNN(2-4-1;relu)",
+      "optimizer": "SGD",
+      "learning_rate": 0.05,
+      "batch_size": 32,
+      "epochs": 200,
+      "train_loss": 0.23824802041053772,
+      "val_loss": 0.273305207490921,
+      "val_metric": 0.875,
+      "test_metric": null,
+      "parameters": 17,
+      "trainable_parameters": 17,
+      "runtime_seconds": 1.335279299999911,
+      "device": "cpu",
+      "notes": "status=ok; role=wajib; activation=relu; hidden_size=4; initial_val_loss=0.62248552; val_metric=accuracy; near_flat_last20=False; dead_relu_train=0"
+    },
+    {
+      "run_id": "relu_16",
+      "module": "M01",
+      "student_id": "123450062",
+      "seed": 1062,
+      "dataset": "make_moons",
+      "split": "train-val-test",
+      "model": "FNN(2-16-1;relu)",
+      "optimizer": "SGD",
+      "learning_rate": 0.05,
+      "batch_size": 32,
+      "epochs": 200,
+      "train_loss": 0.21134993433952332,
+      "val_loss": 0.2500174343585968,
+      "val_metric": 0.9083333333333333,
+      "test_metric": 0.8833333333333333,
+      "parameters": 65,
+      "trainable_parameters": 65,
+      "runtime_seconds": 1.4519949000000452,
+      "device": "cpu",
+      "notes": "status=ok; role=wajib; activation=relu; hidden_size=16; initial_val_loss=0.87982208; val_metric=accuracy; near_flat_last20=False; dead_relu_train=1; selected_by=final_validation_loss; test_loss=0.29382619; test_metric=accuracy"
+    },
+    {
+      "run_id": "tanh_4",
+      "module": "M01",
+      "student_id": "123450062",
+      "seed": 1062,
+      "dataset": "make_moons",
+      "split": "train-val-test",
+      "model": "FNN(2-4-1;tanh)",
+      "optimizer": "SGD",
+      "learning_rate": 0.05,
+      "batch_size": 32,
+      "epochs": 200,
+      "train_loss": 0.28447097539901733,
+      "val_loss": 0.31041419506073,
+      "val_metric": 0.8666666666666667,
+      "test_metric": null,
+      "parameters": 17,
+      "trainable_parameters": 17,
+      "runtime_seconds": 1.471302999999807,
+      "device": "cpu",
+      "notes": "status=ok; role=wajib; activation=tanh; hidden_size=4; initial_val_loss=0.58297795; val_metric=accuracy; near_flat_last20=True"
+    },
+    {
+      "run_id": "tanh_16",
+      "module": "M01",
+      "student_id": "123450062",
+      "seed": 1062,
+      "dataset": "make_moons",
+      "split": "train-val-test",
+      "model": "FNN(2-16-1;tanh)",
+      "optimizer": "SGD",
+      "learning_rate": 0.05,
+      "batch_size": 32,
+      "epochs": 200,
+      "train_loss": 0.28039348125457764,
+      "val_loss": 0.3107500970363617,
+      "val_metric": 0.8666666666666667,
+      "test_metric": null,
+      "parameters": 65,
+      "trainable_parameters": 65,
+      "runtime_seconds": 1.3488624000001437,
+      "device": "cpu",
+      "notes": "status=ok; role=wajib; activation=tanh; hidden_size=16; initial_val_loss=0.89617234; val_metric=accuracy; near_flat_last20=True"
+    },
+    {
+      "run_id": "sigmoid_4",
+      "module": "M01",
+      "student_id": "123450062",
+      "seed": 1062,
+      "dataset": "make_moons",
+      "split": "train-val-test",
+      "model": "FNN(2-4-1;sigmoid)",
+      "optimizer": "SGD",
+      "learning_rate": 0.05,
+      "batch_size": 32,
+      "epochs": 200,
+      "train_loss": 0.293439656496048,
+      "val_loss": 0.31302908062934875,
+      "val_metric": 0.8666666666666667,
+      "test_metric": null,
+      "parameters": 17,
+      "trainable_parameters": 17,
+      "runtime_seconds": 1.3657167999999729,
+      "device": "cpu",
+      "notes": "status=ok; role=wajib; activation=sigmoid; hidden_size=4; initial_val_loss=0.65870941; val_metric=accuracy; near_flat_last20=True"
+    },
+    {
+      "run_id": "sigmoid_16",
+      "module": "M01",
+      "student_id": "123450062",
+      "seed": 1062,
+      "dataset": "make_moons",
+      "split": "train-val-test",
+      "model": "FNN(2-16-1;sigmoid)",
+      "optimizer": "SGD",
+      "learning_rate": 0.05,
+      "batch_size": 32,
+      "epochs": 200,
+      "train_loss": 0.28424614667892456,
+      "val_loss": 0.30850905179977417,
+      "val_metric": 0.8666666666666667,
+      "test_metric": null,
+      "parameters": 65,
+      "trainable_parameters": 65,
+      "runtime_seconds": 1.4330409000003783,
+      "device": "cpu",
+      "notes": "status=ok; role=wajib; activation=sigmoid; hidden_size=16; initial_val_loss=0.75841200; val_metric=accuracy; near_flat_last20=True"
+    }
+  ],
+  "configs": {
+    "baseline_relu_h8": {
+      "activation": "relu",
+      "hidden": 8,
+      "role": "baseline",
+      "initial_val_loss": 0.677447497844696,
+      "dead_relu_train": 1,
+      "train_accuracy": 0.8805555555555555
+    },
+    "latihan_tanh_h8": {
+      "activation": "tanh",
+      "hidden": 8,
+      "role": "latihan",
+      "initial_val_loss": 0.6299518346786499,
+      "dead_relu_train": null,
+      "train_accuracy": 0.8694444444444445
+    },
+    "relu_4": {
+      "activation": "relu",
+      "hidden": 4,
+      "role": "wajib",
+      "initial_val_loss": 0.6224855184555054,
+      "dead_relu_train": 0,
+      "train_accuracy": 0.8833333333333333
+    },
+    "relu_16": {
+      "activation": "relu",
+      "hidden": 16,
+      "role": "wajib",
+      "initial_val_loss": 0.8798220753669739,
+      "dead_relu_train": 1,
+      "train_accuracy": 0.9166666666666666
+    },
+    "tanh_4": {
+      "activation": "tanh",
+      "hidden": 4,
+      "role": "wajib",
+      "initial_val_loss": 0.5829779505729675,
+      "dead_relu_train": null,
+      "train_accuracy": 0.8666666666666667
+    },
+    "tanh_16": {
+      "activation": "tanh",
+      "hidden": 16,
+      "role": "wajib",
+      "initial_val_loss": 0.8961723446846008,
+      "dead_relu_train": null,
+      "train_accuracy": 0.8694444444444445
+    },
+    "sigmoid_4": {
+      "activation": "sigmoid",
+      "hidden": 4,
+      "role": "wajib",
+      "initial_val_loss": 0.6587094068527222,
+      "dead_relu_train": null,
+      "train_accuracy": 0.8611111111111112
+    },
+    "sigmoid_16": {
+      "activation": "sigmoid",
+      "hidden": 16,
+      "role": "wajib",
+      "initial_val_loss": 0.7584120035171509,
+      "dead_relu_train": null,
+      "train_accuracy": 0.8638888888888889
+    }
+  },
+  "mandatory_ids": [
+    "relu_4",
+    "relu_16",
+    "tanh_4",
+    "tanh_16",
+    "sigmoid_4",
+    "sigmoid_16"
+  ],
+  "selected_run": "relu_16",
+  "test_loss": 0.2938261926174164,
+  "test_accuracy": 0.8833333333333333,
+  "confusion_matrix": [
+    [
+      55,
+      5
+    ],
+    [
+      9,
+      51
+    ]
+  ],
+  "test_evaluations": 1,
+  "checkpoint": [
+    {
+      "pemeriksaan": "z1",
+      "selisih_absolut": 0.0
+    },
+    {
+      "pemeriksaan": "h",
+      "selisih_absolut": 0.0
+    },
+    {
+      "pemeriksaan": "logit",
+      "selisih_absolut": 0.0
+    },
+    {
+      "pemeriksaan": "probabilitas",
+      "selisih_absolut": 4.2666963295801e-09
+    },
+    {
+      "pemeriksaan": "BCE",
+      "selisih_absolut": 7.5049934322724e-10
+    }
+  ],
+  "uncertain_validation": [
+    {
+      "fitur_1": -0.3662641942501068,
+      "fitur_2": -0.07958247512578964,
+      "label": 1,
+      "p_kelas_1": 0.5086470246315002
+    },
+    {
+      "fitur_1": 0.6522553563117981,
+      "fitur_2": -0.09479178488254547,
+      "label": 0,
+      "p_kelas_1": 0.4878001809120178
+    },
+    {
+      "fitur_1": -0.5394898653030396,
+      "fitur_2": -0.0006865454488433897,
+      "label": 1,
+      "p_kelas_1": 0.45097070932388306
+    },
+    {
+      "fitur_1": 0.2562510669231415,
+      "fitur_2": -0.05229399353265762,
+      "label": 0,
+      "p_kelas_1": 0.4504990577697754
+    },
+    {
+      "fitur_1": -0.2927173376083374,
+      "fitur_2": -0.16655130684375763,
+      "label": 1,
+      "p_kelas_1": 0.5568639636039734
+    }
+  ],
+  "split": [
+    {
+      "split": "train",
+      "n": 360,
+      "positive_rate": 0.5
+    },
+    {
+      "split": "validation",
+      "n": 120,
+      "positive_rate": 0.5
+    },
+    {
+      "split": "test",
+      "n": 120,
+      "positive_rate": 0.5
+    }
+  ]
+}

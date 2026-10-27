@@ -1,0 +1,7 @@
+[
+  "Model grid terbaik adalah grid_adam_lr0.001 dengan validation loss 0.405731 dan runtime 1.62 detik. Run tercepat adalah grid_sgd_lr0.5 dengan waktu 1.41 detik dan loss 0.540700; loss terendah dan waktu tercepat mengukur tujuan berbeda.",
+  "Adam terbaik memakai LR 0.001, sedangkan SGD terbaik LR 0.1. Adam membagi momen pertama gradien dengan skala momen keduanya, sehingga nilai learning rate numerik yang sama tidak memberikan besar pembaruan yang sama seperti SGD.",
+  "Pada baseline SGD LR 1, validation loss akhir 1.794175 dan grad_norm_mean 1.348454. Kenaikan loss antar-epoch pertama teramati pada epoch 3; langkah terlalu besar dapat melewati daerah minimum dan menghasilkan osilasi.",
+  "Tanpa scheduler diperoleh loss 0.405731; StepLR 0.399626; CosineAnnealingLR 0.403414, semuanya lima epoch. Scheduler tidak menjamin perbaikan: penurunan LR terlalu awal dapat membatasi langkah optimisasi ketika model belum cukup belajar.",
+  "Jika efisiensi diukur sebagai validation accuracy dibagi runtime pada run lima epoch yang tersedia, batch 512 paling tinggi: accuracy 0.8480, waktu 1.34 detik, dan 120 update. Ini rekomendasi berdasarkan ukuran pendekatan efisiensi, bukan bukti pada eksperimen dengan batas waktu persis sama."
+]

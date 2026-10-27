@@ -1,0 +1,7 @@
+[
+  "Hidden yang lebih besar tidak selalu memperbaiki validation loss pada eksperimen ini. relu: hidden 4=0.273305, hidden 16=0.250017; tanh: hidden 4=0.310414, hidden 16=0.310750; sigmoid: hidden 4=0.313029, hidden 16=0.308509. Kapasitas meningkat dari 17 menjadi 65 parameter, tetapi peringkat tetap dipengaruhi aktivasi dan anggaran optimisasi.",
+  "Dengan stabilitas didefinisikan sebagai perubahan loss terhadap hidden size, aktivasi tanh paling stabil: selisih absolutnya 0.000336. Ukuran ini hanya sensitivitas terhadap kapasitas pada seed 1062, bukan kestabilan antar-seed.",
+  "Konfigurasi sigmoid_4 dan sigmoid_16 memperoleh accuracy 0.8667 dan 0.8667, tetapi BCE 0.313029 dan 0.308509. Accuracy menilai kelas setelah threshold 0,5; BCE juga memperhitungkan keyakinan probabilitas.",
+  "Decision boundary paling tidak pasti pada pita probabilitas sekitar 0,5 di antara dua bulan yang saling berdekatan. Lima titik validasi terdekat 0,5 tercatat di notebook; contohnya p=0.5086. Lokasi tersebut masuk akal karena noise 0,22 membuat batas kedua kelas bertumpang tindih.",
+  "Kesimpulan terbatas pada 600 titik make_moons, satu seed 1062, noise 0,22, dan SGD selama 200 epoch. Dataset sintetis kecil ini belum mewakili citra, teks, atau domain lain; peringkat aktivasi dapat berubah ketika data atau optimizer diganti."
+]
