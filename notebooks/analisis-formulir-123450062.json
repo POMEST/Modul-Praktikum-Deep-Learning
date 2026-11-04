@@ -1,0 +1,30 @@
+{
+  "01": [
+    "Hidden yang lebih besar tidak selalu memperbaiki validation loss pada eksperimen ini. relu: hidden 4=0.273305, hidden 16=0.250017; tanh: hidden 4=0.310414, hidden 16=0.310750; sigmoid: hidden 4=0.313029, hidden 16=0.308509. Kapasitas meningkat dari 17 menjadi 65 parameter, tetapi peringkat tetap dipengaruhi aktivasi dan anggaran optimisasi.",
+    "Dengan stabilitas didefinisikan sebagai perubahan loss terhadap hidden size, aktivasi tanh paling stabil: selisih absolutnya 0.000336. Ukuran ini hanya sensitivitas terhadap kapasitas pada seed 1062, bukan kestabilan antar-seed.",
+    "Konfigurasi sigmoid_4 dan sigmoid_16 memperoleh accuracy 0.8667 dan 0.8667, tetapi BCE 0.313029 dan 0.308509. Accuracy menilai kelas setelah threshold 0,5; BCE juga memperhitungkan keyakinan probabilitas.",
+    "Decision boundary paling tidak pasti pada pita probabilitas sekitar 0,5 di antara dua bulan yang saling berdekatan. Lima titik validasi terdekat 0,5 tercatat di notebook; contohnya p=0.5086. Lokasi tersebut masuk akal karena noise 0,22 membuat batas kedua kelas bertumpang tindih.",
+    "Kesimpulan terbatas pada 600 titik make_moons, satu seed 1062, noise 0,22, dan SGD selama 200 epoch. Dataset sintetis kecil ini belum mewakili citra, teks, atau domain lain; peringkat aktivasi dapat berubah ketika data atau optimizer diganti."
+  ],
+  "02": [
+    "Relative error nonnol muncul karena finite difference hanya pendekatan dan float64 memiliki pembulatan. Pada Kasus 1 maksimum error 1.122e-10, sehingga ambang modul 1e-5 masih terpenuhi. Komponen yang gradiennya sama-sama nol dapat memiliki relative error tepat nol.",
+    "Ketika epsilon berubah dari 1e-5 ke 1e-9, maksimum relative error menjadi 1.275e-06, dibanding 1.122e-10 sebelumnya, meningkat sekitar 11363 kali. Dua nilai loss semakin berdekatan, sehingga cancellation dan pembulatan menjadi besar setelah dibagi 2epsilon.",
+    "Gradien contoh pertama dan kedua bergabung pada operasi perkalian matriks dan penjumlahan bias: dW1=Delta1.T@X dan dW2=H.T@delta2. Karena loss merupakan rata-rata, delta2 sudah memuat faktor 1/2. Loss batch aktual 0.066885957 dan db2 -0.011227425 sesuai rata-rata kontribusi individual.",
+    "Urutan step sebelum backward paling sulit dideteksi dari loss saja: perbaikan2 dan 3 sama-sama menghasilkan BCE 0.000e+00 dan 0.000e+00. Namun urutan salah hanya melakukan 399 update, sedangkan urutan benar 400; kesetaraan state dengan epoch 399 membuktikan pergeseran satu langkah.",
+    "Backpropagation menghitung gradien loss dengan aturan rantai, misalnya gradien W2 Kasus 1 [-0,113787270;-0,075858180]. Optimizer kemudian mengubah parameter menggunakan gradien tersebut; pada XOR digunakan SGD dengan learning rate0,1. Pemisahan ini menjelaskan mengapa backward dan step harus dipanggil dalam urutan yang benar."
+  ],
+  "03": [
+    "Model grid terbaik adalah grid_adam_lr0.001 dengan validation loss 0.405731 dan runtime 1.62 detik. Run tercepat adalah grid_sgd_lr0.5 dengan waktu 1.41 detik dan loss 0.540700; loss terendah dan waktu tercepat mengukur tujuan berbeda.",
+    "Adam terbaik memakai LR 0.001, sedangkan SGD terbaik LR 0.1. Adam membagi momen pertama gradien dengan skala momen keduanya, sehingga nilai learning rate numerik yang sama tidak memberikan besar pembaruan yang sama seperti SGD.",
+    "Pada baseline SGD LR 1, validation loss akhir 1.794175 dan grad_norm_mean 1.348454. Kenaikan loss antar-epoch pertama teramati pada epoch 3; langkah terlalu besar dapat melewati daerah minimum dan menghasilkan osilasi.",
+    "Tanpa scheduler diperoleh loss 0.405731; StepLR 0.399626; CosineAnnealingLR 0.403414, semuanya lima epoch. Scheduler tidak menjamin perbaikan: penurunan LR terlalu awal dapat membatasi langkah optimisasi ketika model belum cukup belajar.",
+    "Jika efisiensi diukur sebagai validation accuracy dibagi runtime pada run lima epoch yang tersedia, batch 512 paling tinggi: accuracy 0.8480, waktu 1.34 detik, dan 120 update. Ini rekomendasi berdasarkan ukuran pendekatan efisiensi, bukan bukti pada eksperimen dengan batas waktu persis sama."
+  ],
+  "04": [
+    "Baseline menunjukkan validation loss minimum 0.455766 pada epoch 7, lalu lebih tinggi sesudahnya, misalnya epoch 8. Pada epoch terakhir loss validasi 0.698454 dan gap 0.676323; ketidakseimbangan train-validation ini menjadi bukti overfitting.",
+    "Di antara baseline dan tiga strategi terpisah, gap checkpoint terkecil dimiliki weight_decay_1e-3 sebesar 0.199436, sedangkan validation loss terendah dimiliki dropout_0.5 sebesar 0.442318. Gap kecil saja dapat muncul karena underfitting; karena itu tetap perlu melihat kedua loss.",
+    "Dalam percobaan ini pemenang random_11 memang memakai jumlah parameter maksimum dalam ruang yang dicoba, yaitu 269,322. Namun trial lain dengan kapasitas sama, misalnya random_09, memperoleh loss 0.457734, dibanding 0.430266 pada pemenang. Jadi jumlah parameter saja belum menentukan peringkat.",
+    "Secara deskriptif, learning_rate memiliki rentang rerata validation loss antarkelompok terbesar: nilai 0.0001 memberi rerata 0.543574, sedangkan 0.001 memberi 0.439228. Namun hanya 12 dari 81 kombinasi diuji dan jumlah anggota tiap kelompok tidak seimbang; faktor lain ikut berubah, sehingga ini bukan bukti pengaruh kausal tunggal.",
+    "Model final memiliki validation loss 0.430266 dan test loss 0.465573, sehingga test minus validation adalah +0.035307. Ini menggambarkan perbedaan hasil pada dua split untuk model terpilih, bukan alasan menyesuaikan hyperparameter setelah melihat test; hanya satu lintasan test dilakukan."
+  ]
+}

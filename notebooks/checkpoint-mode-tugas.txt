@@ -1,0 +1,103 @@
+── Checkpoint dl-module-01 (Mode tugas) · 18.54 ──
+LULUS — Seluruh 10 butir lulus. (0.3 dtk)
+  [LULUS] notebook M01_<NIM>.ipynb ada di folder kerja
+           M01_123450062.ipynb
+  [LULUS] NIM diisi di sel identitas
+           123450062
+  [LULUS] nama berkas memakai NIM yang sama
+           M01_123450062.ipynb
+  [LULUS] sel Terbimbing dijalankan
+           8 sel
+  [LULUS] tidak ada keluaran galat
+  [LULUS] Restart Kernel and Run All: semua sel kode dijalankan berurutan
+           In [1] sampai In [12]
+  [LULUS] tanpa path absolut
+  [LULUS] M01_<NIM>_metrics.csv tersimpan
+           M01_123450062_metrics.csv
+  [LULUS] metrics.csv memuat minimal 6 run (enam eksperimen aktivasi x hidden size)
+           8 baris
+  [LULUS] nilai loss/akurasi berupa angka hingga
+           train_loss, val_loss, val_metric, test_metric
+
+── Checkpoint dl-module-02 (Mode tugas) · 18.54 ──
+LULUS — Seluruh 11 butir lulus. (0.3 dtk)
+  [LULUS] notebook M02_<NIM>.ipynb ada di folder kerja
+           M02_123450062.ipynb
+  [LULUS] NIM diisi di sel identitas
+           123450062
+  [LULUS] nama berkas memakai NIM yang sama
+           M02_123450062.ipynb
+  [LULUS] sel Terbimbing dijalankan
+           7 sel
+  [LULUS] tidak ada keluaran galat
+  [LULUS] Restart Kernel and Run All: semua sel kode dijalankan berurutan
+           In [1] sampai In [14]
+  [LULUS] tanpa path absolut
+  [LULUS] M02_<NIM>_metrics.csv tersimpan
+           M02_123450062_metrics.csv
+  [LULUS] metrics.csv memuat minimal 2 run (gradient check dan tahap training loop)
+           59 baris
+  [LULUS] metrics.csv memuat gradient_check dan training_loop
+  [LULUS] nilai loss/akurasi berupa angka hingga
+           train_loss, val_loss, val_metric, test_metric
+
+── Checkpoint dl-module-04 (Mode tugas) · 18.59 ──
+GAGAL — 1 dari 9 butir gagal. (0.3 dtk)
+  [LULUS] notebook M04_<NIM>.ipynb ada di folder kerja
+           M04_123450062.ipynb
+  [GAGAL] NIM diisi di sel identitas
+           ganti NIM = 'ISI_NIM' dengan NIM lengkap Anda, lalu jalankan ulang
+  [LULUS] sel Terbimbing dijalankan
+           6 sel
+  [LULUS] tidak ada keluaran galat
+  [LULUS] Restart Kernel and Run All: semua sel kode dijalankan berurutan
+           In [1] sampai In [8]
+  [LULUS] tanpa path absolut
+  [LULUS] M04_<NIM>_metrics.csv tersimpan
+           M04_123450062_metrics.csv
+  [LULUS] metrics.csv memuat minimal 16 run (empat run awal + dua belas trial)
+           18 baris
+  [LULUS] nilai loss/akurasi berupa angka hingga
+           train_loss, val_loss, val_metric, test_metric
+
+── Checkpoint dl-module-03 (Mode tugas) · 19.07 ──
+LULUS — Seluruh 10 butir lulus. (0.2 dtk)
+  [LULUS] notebook M03_<NIM>.ipynb ada di folder kerja
+           M03_123450062.ipynb
+  [LULUS] NIM diisi di sel identitas
+           123450062
+  [LULUS] nama berkas memakai NIM yang sama
+           M03_123450062.ipynb
+  [LULUS] sel Terbimbing dijalankan
+           5 sel
+  [LULUS] tidak ada keluaran galat
+  [LULUS] Restart Kernel and Run All: semua sel kode dijalankan berurutan
+           In [1] sampai In [7]
+  [LULUS] tanpa path absolut
+  [LULUS] M03_<NIM>_metrics.csv tersimpan
+           M03_123450062_metrics.csv
+  [LULUS] metrics.csv memuat minimal 15 run (seluruh run optimizer, learning rate, scheduler, dan batch)
+           18 baris
+  [LULUS] nilai loss/akurasi berupa angka hingga
+           train_loss, val_loss, val_metric, test_metric
+
+── Checkpoint dl-module-04 (Mode tugas) · 19.08 ──
+LULUS — Seluruh 10 butir lulus. (0.2 dtk)
+  [LULUS] notebook M04_<NIM>.ipynb ada di folder kerja
+           M04_123450062.ipynb
+  [LULUS] NIM diisi di sel identitas
+           123450062
+  [LULUS] nama berkas memakai NIM yang sama
+           M04_123450062.ipynb
+  [LULUS] sel Terbimbing dijalankan
+           6 sel
+  [LULUS] tidak ada keluaran galat
+  [LULUS] Restart Kernel and Run All: semua sel kode dijalankan berurutan
+           In [1] sampai In [8]
+  [LULUS] tanpa path absolut
+  [LULUS] M04_<NIM>_metrics.csv tersimpan
+           M04_123450062_metrics.csv
+  [LULUS] metrics.csv memuat minimal 16 run (empat run awal + dua belas trial)
+           18 baris
+  [LULUS] nilai loss/akurasi berupa angka hingga
+           train_loss, val_loss, val_metric, test_metric

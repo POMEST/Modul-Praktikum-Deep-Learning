@@ -1,0 +1,356 @@
+{
+  "name": "Abdillah Fikri Alpome",
+  "nim": "123450062",
+  "class": "RC",
+  "date": "2026-10-27",
+  "environment": {
+    "python": "3.14.7",
+    "numpy": "2.5.3",
+    "pandas": "3.0.5",
+    "torch": "2.14.0+cpu",
+    "device": "cpu",
+    "dtype": "torch.float64",
+    "seed": 62,
+    "torch_threads": 1
+  },
+  "seed": 62,
+  "epochs": 400,
+  "learning_rate": 0.1,
+  "metric_rows": 59,
+  "gradient_summaries": {
+    "gradcheck_kasus1": {
+      "components": 9,
+      "max_rel_err": 1.1221922358447185e-10,
+      "max_abs_manual_auto": 0.0,
+      "exact_zero_components": 0
+    },
+    "latihan_tanh": {
+      "components": 9,
+      "max_rel_err": 1.768514457152128e-10,
+      "max_abs_manual_auto": 1.6653345369377348e-16,
+      "exact_zero_components": 0
+    },
+    "gradcheck_perluasan": {
+      "components": 13,
+      "max_rel_err": 1.1221922358447185e-10,
+      "max_abs_manual_auto": 0.0,
+      "exact_zero_components": 4
+    },
+    "gradcheck_batch2": {
+      "components": 13,
+      "max_rel_err": 4.1330875605471523e-10,
+      "max_abs_manual_auto": 1.3877787807814457e-17,
+      "exact_zero_components": 0
+    },
+    "gradcheck_eps9": {
+      "components": 9,
+      "max_rel_err": 1.2751593298349621e-06,
+      "max_abs_manual_auto": 0.0,
+      "exact_zero_components": 0
+    }
+  },
+  "loop_results": [
+    {
+      "run_id": "loop_rusak",
+      "loss_awal": 0.705380294912693,
+      "loss_akhir": 297.93672101572736,
+      "objective_awal": 0.732822384960949,
+      "objective_akhir": 0.5981758072995147,
+      "benar_dari_4": 3,
+      "accuracy": 0.75,
+      "norma_parameter": 56.83335242544855,
+      "max_abs_logit": 1191.7468840629094,
+      "prediksi": [
+        0,
+        1,
+        0,
+        0
+      ],
+      "epochs": 400,
+      "updates": 399,
+      "runtime_seconds": 0.32169599999997445,
+      "use_relu": false,
+      "raw_logits": false,
+      "correct_order": false,
+      "clear_grad": false
+    },
+    {
+      "run_id": "loop_perbaikan_1",
+      "loss_awal": 0.6880053223267815,
+      "loss_akhir": 2.7910193956872575e-08,
+      "objective_awal": 0.7215702616448549,
+      "objective_akhir": 0.5032044485457353,
+      "benar_dari_4": 4,
+      "accuracy": 1.0,
+      "norma_parameter": 68.30304827023048,
+      "max_abs_logit": 74.70779650516661,
+      "prediksi": [
+        0,
+        1,
+        1,
+        0
+      ],
+      "epochs": 400,
+      "updates": 399,
+      "runtime_seconds": 0.3431507000000238,
+      "use_relu": true,
+      "raw_logits": false,
+      "correct_order": false,
+      "clear_grad": false
+    },
+    {
+      "run_id": "loop_perbaikan_2",
+      "loss_awal": 0.6880053223267815,
+      "loss_akhir": 0.0,
+      "objective_awal": 0.6880053223267815,
+      "objective_akhir": 0.0,
+      "benar_dari_4": 4,
+      "accuracy": 1.0,
+      "norma_parameter": 140.9124340394856,
+      "max_abs_logit": 1845.5842621096442,
+      "prediksi": [
+        0,
+        1,
+        1,
+        0
+      ],
+      "epochs": 400,
+      "updates": 399,
+      "runtime_seconds": 0.32641530000000785,
+      "use_relu": true,
+      "raw_logits": true,
+      "correct_order": false,
+      "clear_grad": false
+    },
+    {
+      "run_id": "loop_perbaikan_3",
+      "loss_awal": 0.6880053223267815,
+      "loss_akhir": 0.0,
+      "objective_awal": 0.6880053223267815,
+      "objective_akhir": 0.0,
+      "benar_dari_4": 4,
+      "accuracy": 1.0,
+      "norma_parameter": 141.2853725873616,
+      "max_abs_logit": 1855.3854171563246,
+      "prediksi": [
+        0,
+        1,
+        1,
+        0
+      ],
+      "epochs": 400,
+      "updates": 400,
+      "runtime_seconds": 0.2558664000002864,
+      "use_relu": true,
+      "raw_logits": true,
+      "correct_order": true,
+      "clear_grad": false
+    },
+    {
+      "run_id": "loop_perbaikan_4",
+      "loss_awal": 0.6880053223267815,
+      "loss_akhir": 0.1268635379296944,
+      "objective_awal": 0.6880053223267815,
+      "objective_akhir": 0.1269205067209434,
+      "benar_dari_4": 4,
+      "accuracy": 1.0,
+      "norma_parameter": 5.191053667823451,
+      "max_abs_logit": 2.5462935930546386,
+      "prediksi": [
+        0,
+        1,
+        1,
+        0
+      ],
+      "epochs": 400,
+      "updates": 400,
+      "runtime_seconds": 0.25998440000012124,
+      "use_relu": true,
+      "raw_logits": true,
+      "correct_order": true,
+      "clear_grad": true
+    },
+    {
+      "run_id": "loop_benar_verifikasi",
+      "loss_awal": 0.6880053223267815,
+      "loss_akhir": 0.1268635379296944,
+      "objective_awal": 0.6880053223267815,
+      "objective_akhir": 0.1269205067209434,
+      "benar_dari_4": 4,
+      "accuracy": 1.0,
+      "norma_parameter": 5.191053667823451,
+      "max_abs_logit": 2.5462935930546386,
+      "prediksi": [
+        0,
+        1,
+        1,
+        0
+      ],
+      "epochs": 400,
+      "updates": 400,
+      "runtime_seconds": 0.25851650000004156
+    }
+  ],
+  "tanh": {
+    "relu_norm_dW1": 0.37929090010621724,
+    "tanh_norm_dW1": 0.21715493421099788,
+    "norm_ratio": 0.5725287217546887,
+    "z1": [
+      [
+        1.5,
+        1.0
+      ]
+    ],
+    "h": [
+      [
+        0.9051482536448665,
+        0.7615941559557649
+      ]
+    ],
+    "logit": 1.5487023513339682,
+    "p": 0.8247262320266253,
+    "loss": 0.19270378768624852,
+    "dz1": [
+      [
+        -0.06334626700390387,
+        0.07361048530682761
+      ]
+    ],
+    "grads": {
+      "W1": [
+        [
+          -0.12669253400780775,
+          0.06334626700390387
+        ],
+        [
+          0.14722097061365522,
+          -0.07361048530682761
+        ]
+      ],
+      "b1": [
+        -0.06334626700390387,
+        0.07361048530682761
+      ],
+      "W2": [
+        -0.15864874499085563,
+        -0.13348747738086886
+      ],
+      "b2": -0.17527376797337468
+    }
+  },
+  "batch": {
+    "loss": 0.06688595672531389,
+    "individual_losses": [
+      0.07888973429254964,
+      0.05488217915807815
+    ],
+    "logits": [
+      2.5,
+      -2.875
+    ],
+    "p": [
+      0.9241418199787566,
+      0.053403329799824234
+    ],
+    "grads": {
+      "W1": [
+        [
+          -0.1517163600424869,
+          0.07585818002124345
+        ],
+        [
+          0.10255984492115557,
+          -0.11803408471035808
+        ],
+        [
+          0.013350832449956059,
+          -0.040052497349868176
+        ]
+      ],
+      "b1": [
+        -0.07585818002124345,
+        0.011227425110709607,
+        -0.013350832449956059
+      ],
+      "W2": [
+        -0.05689363501593259,
+        0.01547423978920251,
+        0.07342957847475833
+      ],
+      "b2": -0.011227425110709607
+    },
+    "per_example": [
+      {
+        "W1": [
+          [
+            -0.3034327200849738,
+            0.1517163600424869
+          ],
+          [
+            0.1517163600424869,
+            -0.07585818002124345
+          ],
+          [
+            0.0,
+            0.0
+          ]
+        ],
+        "b1": [
+          -0.1517163600424869,
+          0.07585818002124345,
+          0.0
+        ],
+        "W2": [
+          -0.11378727003186517,
+          -0.07585818002124345,
+          0.0
+        ],
+        "b2": -0.07585818002124345
+      },
+      {
+        "W1": [
+          [
+            0.0,
+            0.0
+          ],
+          [
+            0.053403329799824234,
+            -0.1602099893994727
+          ],
+          [
+            0.026701664899912117,
+            -0.08010499469973635
+          ]
+        ],
+        "b1": [
+          0.0,
+          -0.053403329799824234,
+          -0.026701664899912117
+        ],
+        "W2": [
+          0.0,
+          0.10680665959964847,
+          0.14685915694951665
+        ],
+        "b2": 0.053403329799824234
+      }
+    ]
+  },
+  "target_reached": false,
+  "accumulation_W2": {
+    "once": [
+      -0.11378727003186517,
+      -0.07585818002124345
+    ],
+    "twice": [
+      -0.22757454006373035,
+      -0.1517163600424869
+    ],
+    "reset": [
+      -0.11378727003186517,
+      -0.07585818002124345
+    ]
+  },
+  "order_shift_verified": true,
+  "clean_loop_equals_stage4": true
+}

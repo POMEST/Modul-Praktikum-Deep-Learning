@@ -1,0 +1,7 @@
+[
+  "Relative error nonnol muncul karena finite difference hanya pendekatan dan float64 memiliki pembulatan. Pada Kasus 1 maksimum error 1.122e-10, sehingga ambang modul 1e-5 masih terpenuhi. Komponen yang gradiennya sama-sama nol dapat memiliki relative error tepat nol.",
+  "Ketika epsilon berubah dari 1e-5 ke 1e-9, maksimum relative error menjadi 1.275e-06, dibanding 1.122e-10 sebelumnya, meningkat sekitar 11363 kali. Dua nilai loss semakin berdekatan, sehingga cancellation dan pembulatan menjadi besar setelah dibagi 2epsilon.",
+  "Gradien contoh pertama dan kedua bergabung pada operasi perkalian matriks dan penjumlahan bias: dW1=Delta1.T@X dan dW2=H.T@delta2. Karena loss merupakan rata-rata, delta2 sudah memuat faktor 1/2. Loss batch aktual 0.066885957 dan db2 -0.011227425 sesuai rata-rata kontribusi individual.",
+  "Urutan step sebelum backward paling sulit dideteksi dari loss saja: perbaikan2 dan 3 sama-sama menghasilkan BCE 0.000e+00 dan 0.000e+00. Namun urutan salah hanya melakukan 399 update, sedangkan urutan benar 400; kesetaraan state dengan epoch 399 membuktikan pergeseran satu langkah.",
+  "Backpropagation menghitung gradien loss dengan aturan rantai, misalnya gradien W2 Kasus 1 [-0,113787270;-0,075858180]. Optimizer kemudian mengubah parameter menggunakan gradien tersebut; pada XOR digunakan SGD dengan learning rate0,1. Pemisahan ini menjelaskan mengapa backward dan step harus dipanggil dalam urutan yang benar."
+]

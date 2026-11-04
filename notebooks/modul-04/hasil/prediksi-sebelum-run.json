@@ -1,0 +1,6 @@
+{
+  "written_at": "2026-10-27T19:01:48",
+  "seed": 62,
+  "seed_search": 63,
+  "text": "Baseline diperkirakan overfit; dropout 0.5 mengurangi gap tetapi lebih lambat; dropout 0.2 diperkirakan menurunkan train loss lebih cepat."
+}
